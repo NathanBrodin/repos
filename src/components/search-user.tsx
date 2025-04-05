@@ -1,5 +1,5 @@
 import { setUsername } from "@/features/repos";
-import { useAppSelector } from "@/lib/hooks";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { Search } from "lucide-react";
 
 type SearchUserProps = {
@@ -8,6 +8,7 @@ type SearchUserProps = {
 };
 
 export function SearchUser({ onSearch, isLoading }: SearchUserProps) {
+  const dispatch = useAppDispatch();
   const username = useAppSelector((state) => state.repos.username);
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -21,7 +22,7 @@ export function SearchUser({ onSearch, isLoading }: SearchUserProps) {
         <Search className="mr-2 h-4 w-4 shrink-0 opacity-50" />
         <input
           value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          onChange={(e) => dispatch(setUsername(e.target.value))}
           disabled={isLoading}
           placeholder="Search for github users"
           className="flex h-11 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50"
