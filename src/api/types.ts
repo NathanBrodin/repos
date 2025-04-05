@@ -63,7 +63,7 @@ interface RepositoryPermissions {
   pull?: boolean;
 }
 
-interface MinimalRepository {
+export interface MinimalRepository {
   id: number;
   node_id: string;
   name: string;
