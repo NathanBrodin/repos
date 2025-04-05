@@ -1,5 +1,6 @@
+import { setUsername } from "@/features/repos";
+import { useAppSelector } from "@/lib/hooks";
 import { Search } from "lucide-react";
-import { useState } from "react";
 
 type SearchUserProps = {
   onSearch: (username: string) => void;
@@ -7,7 +8,7 @@ type SearchUserProps = {
 };
 
 export function SearchUser({ onSearch, isLoading }: SearchUserProps) {
-  const [username, setUsername] = useState<string>("");
+  const username = useAppSelector((state) => state.repos.username);
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
