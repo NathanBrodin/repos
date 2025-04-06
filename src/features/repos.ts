@@ -21,8 +21,11 @@ export const reposSlice = createSlice({
     setUsername: (state, action: PayloadAction<string>) => {
       state.username = action.payload;
     },
+    setNameFilter: (state, action: PayloadAction<string>) => {
+      state.filters.name = action.payload;
+    },
   },
 });
 
-export const { setUsername } = reposSlice.actions;
+export const { setUsername, setNameFilter } = reposSlice.actions;
 export default reposSlice.reducer;

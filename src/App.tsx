@@ -1,6 +1,8 @@
 import { useLazyGetReposByUsernameQuery } from "./api/github";
-import { GithubIcon, Repository, RepositoryIcon } from "./components/icons";
+import { Filters } from "./components/filters";
+import { GithubIcon, RepositoryIcon } from "./components/icons";
 import { Repo } from "./components/repo";
+import { Repos } from "./components/repos";
 import { SearchUser } from "./components/search-user";
 import { useAppSelector } from "./lib/hooks";
 
@@ -14,7 +16,7 @@ function App() {
   }
 
   return (
-    <div className="w-full min-h-screen flex flex-col justify-center">
+    <div className="w-full min-h-screen flex flex-col ">
       <header className="w-full p-4 pb-2 bg-[#02040a]  flex justify-between">
         <div className="flex gap-4 items-center">
           <GithubIcon />
@@ -33,10 +35,10 @@ function App() {
           </span>
         </div>
       </nav>
-      <main className="max-w-6xl px-8 flex flex-col self-center mb-16">
-        <div>
-          <div>Filters</div>
-          <li>{data?.map((repo) => <Repo key={repo.id} {...repo} />)}</li>
+      <main className="max-w-4xl w-full  px-8 flex flex-col self-center mb-16">
+        <div className="min-w-full">
+          <Filters />
+          <Repos repos={data} />
         </div>
       </main>
     </div>
