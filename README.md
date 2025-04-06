@@ -1,54 +1,45 @@
-# React + TypeScript + Vite
+# Repos
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React application to explore GitHub repositories by username with search, filtering, and sorting capabilities.
+UI is a clone of Github itself.
 
-Currently, two official plugins are available:
+## Tech Stack
+- [Vite](https://vite.dev): Build Tool
+- [React](https://react.dev/): JS Framework
+- [Redux Toolkit](https://redux-toolkit.js.org/): State Management and Data Fetching
+- [Tailwindcss](https://tailwindcss.com/): Styling
+- [Shadcn/ui](https://ui.shadcn.com/): Component library fondations
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Running locally
+- Install dependencies
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```sh
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Or with a better package manager:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```sh
+bun install
 ```
+
+- Run the dev server
+```sh
+npm run dev
+```
+
+Repos is now running on [http://localhost:5173/](http://localhost:5173/)
+
+## Instructions
+Create a simple React app using Redux that does the following:
+
+- [x] Fetches a list of GitHub repositories for a given username.
+- [x] Displays the repositories in a list with name and description.
+- [x] Allows users to filter repositories by name using an input field.
+
+**Requirements:**
+
+- [x] Use Redux Toolkit for state management.
+- [x] Handle loading and error states.
+- [ ] Implement a debounced search to avoid unnecessary API calls. *The app implements debouncing by fetching repositories only on form submit rather than real-time, and filtering happens client-side, which prevents excessive API calls.*
+- [x] Use TypeScript in the project.
