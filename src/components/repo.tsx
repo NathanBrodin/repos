@@ -27,13 +27,18 @@ export function Repo({
 
   return (
     <li className="flex flex-col border-b py-6 w-full gap-2">
-      <a
-        href={`https://github.com/${username}/${name}`}
-        target="_blank"
-        className="text-primary text-xl font-semibold hover:underline w-fit"
-      >
-        {name}
-      </a>
+      <div className="flex gap-2 h-min items-center">
+        <a
+          href={`https://github.com/${username}/${name}`}
+          target="_blank"
+          className="text-primary text-xl font-semibold hover:underline w-fit"
+        >
+          {name}
+        </a>
+        <span className="px-[6px] py-0.5 border rounded-lg text-muted-foreground text-xs font-medium">
+          Public
+        </span>
+      </div>
       <div className="text-sm text-muted-foreground">{description}</div>
       <div className="flex gap-2">
         {topics?.map((topic) => (

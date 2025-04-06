@@ -37,7 +37,7 @@ function App() {
       <main className="max-w-4xl w-full   px-8 flex flex-col self-center mb-16">
         {!data && !isLoading && (
           <div className="flex flex-col justify-center items-center gap-4 h-full mt-24">
-            <h1 className="text-xl font-semibold">Find User's Repositories</h1>
+            <h1 className="text-xl font-semibold">Explore GitHub Projects</h1>
             <SearchUser onSearch={handleSearch} isLoading={isLoading} />
           </div>
         )}
