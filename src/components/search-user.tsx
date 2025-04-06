@@ -1,5 +1,5 @@
 import { setUsername } from "@/features/repos";
-import { useAppDispatch, useAppSelector } from "@/lib/hooks";
+import { useAppDispatch } from "@/lib/hooks";
 import { Search } from "lucide-react";
 import { useState } from "react";
 
