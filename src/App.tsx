@@ -1,8 +1,7 @@
 import { useLazyGetReposByUsernameQuery } from "./api/github";
 import { Filters } from "./components/filters";
 import { GithubIcon, RepositoryIcon } from "./components/icons";
-import { Repo } from "./components/repo";
-import { Repos } from "./components/repos";
+import { LoadingRepos, Repos } from "./components/repos";
 import { SearchUser } from "./components/search-user";
 import { useAppSelector } from "./lib/hooks";
 
@@ -35,11 +34,30 @@ function App() {
           </span>
         </div>
       </nav>
-      <main className="max-w-4xl w-full  px-8 flex flex-col self-center mb-16">
-        <div className="min-w-full">
-          <Filters />
-          <Repos repos={data} />
-        </div>
+      <main className="max-w-4xl w-full   px-8 flex flex-col self-center mb-16">
+        {!data && !isLoading && (
+          <div className="flex flex-col justify-center items-center gap-4 h-full mt-24">
+            <h1 className="text-xl font-semibold">Find User's Repositories</h1>
+            <SearchUser onSearch={handleSearch} isLoading={isLoading} />
+          </div>
+        )}
+        {isLoading && (
+          <div className="min-w-full">
+            <Filters disabled />
+            <LoadingRepos />
+          </div>
+        )}
+        {error && (
+          <div className="text-destructive text-lg font-semibold flex items-center justify-center self-center mt-6">
+            There was an error looking for {username} repos
+          </div>
+        )}
+        {data && (
+          <div className="min-w-full">
+            <Filters />
+            <Repos repos={data} />
+          </div>
+        )}
       </main>
     </div>
   );

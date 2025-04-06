@@ -1,5 +1,5 @@
 import { GetReposByUsernameResponse } from "@/api/types";
-import { Repo } from "./repo";
+import { LoadingRepo, Repo } from "./repo";
 import { useAppSelector } from "@/lib/hooks";
 
 type ReposProps = {
@@ -18,5 +18,16 @@ export function Repos({ repos }: ReposProps) {
 
   return (
     <ul> {filteredRepos?.map((repo) => <Repo key={repo.id} {...repo} />)}</ul>
+  );
+}
+
+export function LoadingRepos() {
+  return (
+    <ul>
+      {" "}
+      {[0, 1, 2].map((_, index) => (
+        <LoadingRepo key={index} />
+      ))}
+    </ul>
   );
 }

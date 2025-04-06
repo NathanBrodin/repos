@@ -1,6 +1,7 @@
 import { MinimalRepository } from "@/api/types";
 import { useAppSelector } from "@/lib/hooks";
 import { ForksIcon, LawIcon, StarIcon } from "./icons";
+import { Skeleton } from "./ui/skeleton";
 
 export function Repo({
   name,
@@ -75,6 +76,23 @@ export function Repo({
             <span className="text-xs">{formatDate(updated_at)}</span>
           </div>
         )}
+      </div>
+    </li>
+  );
+}
+
+export function LoadingRepo() {
+  return (
+    <li className="flex flex-col border-b py-6 w-full gap-2">
+      <Skeleton className="text-primary text-xl font-semibold hover:underline w-32 h-6" />
+      <Skeleton className="text-sm text-muted-foreground w-96 h-4" />{" "}
+      <div className="flex gap-2">
+        {[0, 1, 2, 3, 4]?.map((topic) => (
+          <Skeleton
+            key={topic}
+            className="text-primary hover:text-white bg-primary-foreground hover:bg-primary w-12 h-5 px-3 py-1 rounded-lg text-xs"
+          />
+        ))}
       </div>
     </li>
   );
