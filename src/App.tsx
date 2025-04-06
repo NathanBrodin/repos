@@ -58,6 +58,11 @@ function App() {
             <Repos repos={data} />
           </div>
         )}
+        {data?.length === 0 && (
+          <div className="flex w-full items-center justify-center mt-16 text-lg font-semibold">
+            {username} doesn't have any repos
+          </div>
+        )}
       </main>
     </div>
   );
