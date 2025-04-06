@@ -32,7 +32,12 @@ export function SearchUser({ onSearch, isLoading }: SearchUserProps) {
           className="flex h-6 w-full rounded-md bg-transparent text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50"
         />
       </div>
-      <Button type="submit">Search</Button>
+      <Button type="submit" className="hidden sm:flex">
+        Search
+      </Button>
+      <Button type="submit" className="sm:hidden">
+        <Search />
+      </Button>
     </form>
   );
 }

@@ -40,7 +40,7 @@ export function Repo({
         </span>
       </div>
       <div className="text-sm text-muted-foreground">{description}</div>
-      <div className="flex gap-2">
+      <div className="flex flex-wrap gap-2">
         {topics?.map((topic) => (
           <a
             href={`https://github.com/topics/${topic}`}
@@ -51,7 +51,7 @@ export function Repo({
           </a>
         ))}
       </div>
-      <div className="flex gap-4 mt-2">
+      <div className="flex flex-wrap gap-4 mt-2">
         {language && (
           <div className="text-muted-foreground flex gap-1 items-center">
             <div className="size-3 border rounded-full bg-primary" />
